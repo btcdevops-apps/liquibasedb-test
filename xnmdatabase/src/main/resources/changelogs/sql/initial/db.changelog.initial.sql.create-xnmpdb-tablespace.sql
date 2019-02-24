@@ -1,0 +1,13 @@
+--liquibase formatted sql
+
+CREATE BIGFILE TABLESPACE xnm_big_tbs_01
+  DATAFILE 'xnm_big_tbs_01.dat'
+  SIZE 20M AUTOEXTEND ON;
+
+CREATE UNDO TABLESPACE xnm_undo_tbs_01
+   DATAFILE 'xnm_undo_tbs_01.dbf'
+   SIZE 10M AUTOEXTEND ON
+   RETENTION GUARANTEE;
+
+CREATE TEMPORARY TABLESPACE xnm_temp_tbs_01
+   TEMPFILE 'xnm_temp_tbs_01.dbf' SIZE 5M AUTOEXTEND ON;
