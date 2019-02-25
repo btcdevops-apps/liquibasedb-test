@@ -20,3 +20,36 @@ sudo docker exec -it oracle-xe bash -c "source /home/oracle/.bashrc; bash"
 #@/opt/oracle/scripts/update-xnmpdbadmin-account.sql
 
 #@/opt/oracle/scripts/create-liquibase-schema.sql
+
+
+
+#--start and stop listener if necessary--
+# $ORACLE_HOME/bin/lsnrctl stop
+
+#
+#sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+#sudo chmod g+rwx "/home/$USER/.docker" -R
+# cd /opt/oracle/product/18c/dbhomeXE/network/admin/
+# add XNMPDB = (DESCRIPTION =
+#                (ADDRESS = (PROTOCOL = TCP)(HOST = 0.0.0.0)(PORT = 1521))
+#                (CONNECT_DATA = (SERVER = SHARED)(SERVICE_NAME = XNMPDB))
+#        )
+#---should look like this---
+#XE =
+#  (DESCRIPTION =
+#    (ADDRESS = (PROTOCOL = TCP)(HOST = 0.0.0.0)(PORT = 1521))
+#    (CONNECT_DATA =
+#      (SERVER = DEDICATED)
+#      (SERVICE_NAME = XE)
+#    )
+#  )
+#XNMPDB = (DESCRIPTION =
+#                (ADDRESS = (PROTOCOL = TCP)(HOST = 0.0.0.0)(PORT = 1521))
+#                (CONNECT_DATA = (SERVER = SHARED)(SERVICE_NAME = XNMPDB))
+#        )
+#
+#LISTENER_XE =
+#  (ADDRESS = (PROTOCOL = TCP)(HOST = 0.0.0.0)(PORT = 1521))
+#-----
+
+#mvn compile -U -Dlocal -Ddatabase.username=xnmpdb_admin -Ddatabase.password=xnmpdb_admin -Ddatabase.url=jdbc:oracle:thin:@172.18.0.2:1521/XNMPDB
