@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/xnmdatabase/xnm-database.iml" filepath="$PROJECT_DIR$/xnmdatabase/xnm-database.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/xnm-db.iml" filepath="$PROJECT_DIR$/.idea/xnm-db.iml" />
     </modules>
   </component>
