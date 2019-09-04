@@ -45,6 +45,20 @@
                 <liquibase.contexts>development</liquibase.contexts>
             </properties>
         </profile>
+        <profile>
+            <id>windowsLocal</id>
+            <activation>
+                <property>
+                    <name>windowsLocal</name>
+                </property>
+            </activation>
+            <properties>
+                <database.url>jdbc:oracle:thin:@localhost:15211/XNMPDB</database.url>
+                <liquibase.username>xnmpdb_admin</liquibase.username>
+                <liquibase.password>xnmpdb_admin</liquibase.password>
+                <liquibase.contexts>development</liquibase.contexts>
+            </properties>
+        </profile>
     </profiles>
     <dependencies>
         <dependency>

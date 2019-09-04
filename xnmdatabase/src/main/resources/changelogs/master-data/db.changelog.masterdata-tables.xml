@@ -5,7 +5,14 @@
     <changeSet author="oladayo.salawu@btcserv.co.uk" id="create-liquibase-schema" runOnChange="true">
         <sqlFile path="changelogs/sql/master-data/db.changelog.initial.sql.create-liquibase-schema.sql" splitStatements="true" endDelimiter=';'/>
     </changeSet>-->
-    <changeSet author="oladayo.salawu@btcserv.co.uk" id="create-xnmpdb" runOnChange="true">
+    <changeSet author="oladayo.salawu@btcserv.co.uk" id="create-xnm_account,xnm_user" runOnChange="true">
         <sqlFile path="changelogs/sql/master-data/db.changelog.master.data.sql.create-tables.sql" splitStatements="true" endDelimiter=';'/>
+        <rollback>
+            <dropTable tableName="XNM_ACCOUNT"/>
+            <dropTable tableName="XNM_USER"/>
+        </rollback>
     </changeSet>
+    <!--<changeSet author="oladayo.salawu@btcserv.co.uk" id="xnm">-->
+        <!---->
+    <!--</changeSet>-->
 </databaseChangeLog>
