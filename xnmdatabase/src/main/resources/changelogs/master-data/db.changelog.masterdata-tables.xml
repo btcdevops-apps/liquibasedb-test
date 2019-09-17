@@ -8,10 +8,16 @@
     <changeSet author="oladayo.salawu@btcserv.co.uk" id="create-xnm_account,xnm_user" runOnChange="true">
         <sqlFile path="changelogs/sql/master-data/db.changelog.master.data.sql.create-tables.sql" splitStatements="true" endDelimiter=';'/>
         <rollback>
-            <dropTable tableName="XNM_ACCOUNT"/>
-            <dropTable tableName="XNM_USER"/>
+            <sqlFile path="changelogs/sql/master-data/rollback/db.changelog.master.data.sql.create-tables-rb.sql"/>
         </rollback>
     </changeSet>
+    <changeSet author="oladayo.salawu@btcserv.co.uk" id="drop_xnmuser_autosequence,new sequence" runOnChange="true">
+        <sqlFile path="changelogs/sql/master-data/db.changelog.master.data.sql.xnm_user_drop_autosequence_create_new_sequence.sql" splitStatements="true" endDelimiter=';'/>
+        <rollback>
+            <sqlFile path="changelogs/sql/master-data/rollback/db.changelog.master.data.sql.xnm_user_drop_autosequence_create_new_sequence-rb.sql"/>
+        </rollback>
+    </changeSet>
+
     <!--<changeSet author="oladayo.salawu@btcserv.co.uk" id="xnm">-->
         <!---->
     <!--</changeSet>-->
