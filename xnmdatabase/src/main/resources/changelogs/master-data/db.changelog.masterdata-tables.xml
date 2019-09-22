@@ -17,7 +17,12 @@
             <sqlFile path="changelogs/sql/master-data/rollback/db.changelog.master.data.sql.xnm_user_drop_autosequence_create_new_sequence-rb.sql"/>
         </rollback>
     </changeSet>
-
+    <changeSet author="oladayo.salawu@btcserv.co.uk" id="xnm_account_domain" runOnChange="true">
+        <sqlFile path="changelogs/sql/master-data/db.changelog.master.data.add_column_domain_to_xnm_account.sql" splitStatements="true" endDelimiter=';'/>
+        <rollback>
+            <sqlFile path="changelogs/sql/master-data/rollback/db.changelog.master.data.add_column_domain_to_xnm_account.sql"/>
+        </rollback>
+    </changeSet>
     <!--<changeSet author="oladayo.salawu@btcserv.co.uk" id="xnm">-->
         <!---->
     <!--</changeSet>-->
