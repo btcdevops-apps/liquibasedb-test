@@ -3,5 +3,13 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <!--sequences-->
+    <include file="changelogs/master-data/sequence/db.changelog.masterdata-sequence.xml"/>
+    <!--tables-->
     <include file="changelogs/master-data/db.changelog.masterdata-tables.xml" />
+    <!--constraints-->
+    <include file="changelogs/master-data/constraints/db.changelog.masterdata-constraints.xml"/>
+    <!--views-->
+    <!--procedures-->
+    <!--functions-->
 </databaseChangeLog>
