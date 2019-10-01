@@ -6,7 +6,7 @@
     <!--sequences-->
     <include file="changelogs/master-data/sequence/db.changelog.masterdata-sequence.xml"/>
     <!--tables-->
-    <include file="changelogs/master-data/db.changelog.masterdata-tables.xml" />
+    <include file="changelogs/master-data/tables/db.changelog.masterdata-tables.xml" />
     <!--constraints-->
     <include file="changelogs/master-data/constraints/db.changelog.masterdata-constraints.xml"/>
     <!--views-->

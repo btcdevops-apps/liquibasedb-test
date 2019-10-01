@@ -6,9 +6,10 @@
         <sqlFile path="changelogs/sql/master-data/db.changelog.initial.sql.create-liquibase-schema.sql" splitStatements="true" endDelimiter=';'/>
     </changeSet>-->
     <changeSet author="oladayo.salawu@btcserv.co.uk" id="master-data-01-table" runOnChange="true">
-        <sqlFile path="changelogs/sql/master-data/master-data-01-tables.sql" splitStatements="true" endDelimiter=';'/>
+        <!--<tagDatabase tag="mtbl_data_01"/>-->
+        <sqlFile path="changelogs/sql/master-data/tables/master-data-01-tables.sql" splitStatements="true" endDelimiter=';'/>
         <rollback>
-            <sqlFile path="changelogs/sql/master-data/1rollback/master-data-01-tables-rb.sql"/>
+            <sqlFile path="changelogs/sql/master-data/tables/rollback/master-data-01-tables-rb.sql"/>
         </rollback>
     </changeSet>
 
