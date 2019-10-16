@@ -12,6 +12,7 @@ sudo docker cp src/main/resources/changelogs/sql/master-data/db.changelog.initia
 sudo docker exec -it oracle-xe bash -c "source /home/oracle/.bashrc; bash"
 
 $ORACLE_HOME/bin/sqlplus sys/Oracle18@localhost/XE as sysdba
+
 ALTER PLUGGABLE DATABASE OPEN READ WRITE;
 #
 ALTER PLUGGABLE DATABASE pdb1, pdb2 OPEN READ ONLY FORCE;
