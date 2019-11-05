@@ -2,6 +2,11 @@
 
 ## Database changes
 
+# mvn compile -DwindowsLocal -Dgoal=rollback -Dliquibase.rollbackCount=1
+# mvn compile -DwindowsLocal -Dgoal=rollback -Dliquibase.rollbackCount=1 -Dliquibase.tag=checkpoint
+# mvn compile -DwindowsLocal
+
+
 The process for a developer needing to make a database change is as follows:
 
 1. Clone or update the project
