@@ -17,6 +17,8 @@ create tablespace xnm_liqui_tbs_01 DATAFILE '/opt/oracle/oradata/XE/XNMPDB/xnm_l
 --Create schema for Liquibase tool
 create user liquibase identified by liquibase default tablespace xnm_liqui_tbs_01 temporary tablespace "XNM_TEMP_TBS_01" account unlock;
 
+
+---EXECUTE FROM WITHIN XNMPDB SQL ($ORACLE_HOME/bin/sqlplus sys/Oracle18@localhost/xnmpdb as sysdba)--
 ALTER USER liquibase QUOTA UNLIMITED ON SYSTEM;
 ALTER USER liquibase QUOTA UNLIMITED ON SYSAUX;
 ALTER USER liquibase QUOTA UNLIMITED ON xnm_liqui_tbs_01;

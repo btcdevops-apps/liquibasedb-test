@@ -56,7 +56,7 @@ On a clean, freshly built database you will need to run the baseline scripts to 
 being able to run the incremental updates.
 
 ```bash
-mvn compile -Dbaseline -Dlocal
+mvn compile -Dbaseline -DbaselineBuild
 ```
 
 #### Incremental update

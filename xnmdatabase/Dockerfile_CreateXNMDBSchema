@@ -1,3 +1,5 @@
+./buildOracleXEDockerImage.sh
+
 CMD exec createXnmDBSchemaObjects.sh
 
 RUN $ORACLE_HOME/bin/sqlplus sys/Oracle18@localhost/xnmpdb as sysdba

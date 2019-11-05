@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-sudo docker cp src/main/resources/changelogs/sql/initial/db.changelog.intial.sql.create-xnmpdb.sql oracle-xe:/opt/oracle/scripts/create-xnmpdb.sql
+sudo docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.create-xnmpdb.sql oracle-xe:/opt/oracle/scripts/create-xnmpdb.sql
 
 sudo docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.create-xnmpdb-tablespace.sql oracle-xe:/opt/oracle/scripts/create-xnmpdb-tablespace.sql
 
@@ -19,15 +19,22 @@ ALTER PLUGGABLE DATABASE pdb1, pdb2 OPEN READ ONLY FORCE;
 ALTER PLUGGABLE DATABASE pdb1, pdb2 CLOSE IMMEDIATE;
 
 ALTER PLUGGABLE DATABASE ALL OPEN;
+
+SELECT name, open_mode FROM v$pdbs;
+
 ALTER PLUGGABLE DATABASE ALL CLOSE IMMEDIATE;
 
 ALTER PLUGGABLE DATABASE ALL EXCEPT pdb1 OPEN;
-ALTER PLUGGABLE DATABASE ALL EXCEPT pdb1 CLOSE IMMEDIATE;
+ALTER PLUGGABLE DATABASE ALL EXCEPT xepdb1 CLOSE IMMEDIATE;
 #
 
 #RUN $ORACLE_HOME/bin/sqlplus sys/Oracle18@localhost/XE as sysdba
 
 #@/opt/oracle/scripts/create-xnmpdb.sql
+
+#@/opt/oracle/scripts/create-xnmpdb-tablespace.sql
+
+#@/opt/oracle/scripts/create-liquibase-schema.sql
 
 #@/opt/oracle/scripts/create-xnmpdb-tablespace.sql
 
