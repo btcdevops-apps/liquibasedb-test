@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="47b32d01-c202-4bb0-b8ee-32d3c430f81d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/.idea/xnm-db.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/xnm-db.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+=======
+>>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/xnmdatabase/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

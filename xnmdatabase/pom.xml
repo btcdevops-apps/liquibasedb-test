@@ -9,7 +9,9 @@
     <version>1.0-SNAPSHOT</version>
     <properties>
         <liquibase-maven.version>3.6.3</liquibase-maven.version>
-        <ojdbc8.version>18.3.0.0</ojdbc8.version>
+        <ojdbc.version>18.3.0.0</ojdbc.version>
+        <ojdbc.group>com.oracle.jdbc</ojdbc.group>
+        <ojdbc.artifcat>ojdbc8</ojdbc.artifcat>
         <liquibase.username>${database.username}</liquibase.username>
         <liquibase.password>${database.password}</liquibase.password>
         <liquibase.url>${database.url}</liquibase.url>
@@ -39,7 +41,7 @@
                 </property>
             </activation>
             <properties>
-                <database.url>jdbc:oracle:thin:@172.18.0.2:1521:XNMPDB</database.url>
+                <database.url>jdbc:oracle:thin:@btchost:15211/XNMPDB</database.url>
                 <liquibase.username>xnmpdb_admin</liquibase.username>
                 <liquibase.password>xnmpdb_admin</liquibase.password>
                 <liquibase.contexts>development</liquibase.contexts>
@@ -53,7 +55,7 @@
                 </property>
             </activation>
             <properties>
-                <database.url>jdbc:oracle:thin:@localhost:15211/XNMPDB</database.url>
+                <database.url>jdbc:oracle:thin:@btchost:15211/XNMPDB</database.url>
                 <liquibase.username>xnmpdb_admin</liquibase.username>
                 <liquibase.password>xnmpdb_admin</liquibase.password>
                 <liquibase.contexts>development</liquibase.contexts>
@@ -62,9 +64,9 @@
     </profiles>
     <dependencies>
         <dependency>
-            <groupId>com.oracle.jdbc</groupId>
-            <artifactId>ojdbc8</artifactId>
-            <version>${ojdbc8.version}</version>
+            <groupId>${ojdbc.group}</groupId>
+            <artifactId>${ojdbc.artifcat}</artifactId>
+            <version>${ojdbc.version}</version>
         </dependency>
     </dependencies>
     <build>
