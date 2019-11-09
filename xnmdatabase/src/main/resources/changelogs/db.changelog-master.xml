@@ -9,6 +9,8 @@
     <include file="changelogs/master-data/tables/db.changelog.masterdata-tables.xml" />
     <!--constraints-->
     <include file="changelogs/master-data/constraints/db.changelog.masterdata-constraints.xml"/>
+    <!--comments-->
+    <include file="changelogs/master-data/comments/db.changelog.masterdata-comments.xml"/>
     <!--views-->
     <!--procedures-->
     <!--functions-->
