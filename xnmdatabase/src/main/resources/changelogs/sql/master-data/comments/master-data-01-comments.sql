@@ -51,3 +51,7 @@ comment on column xnm_inventory_storage.organic_store_flag is 'storage unit is o
 comment on column xnm_inventory_storage.perishable_store_flag is 'storage unit is ideal for perishable products';
 comment on column xnm_inventory_storage.shelf_life_cal_days is 'maximum days items should be in this storage';
 comment on column xnm_inventory_storage.storage_status is 'INUSE,ABN,EXP,FAIL';
+comment on column xnm_inventory_storage.storage_verified_by_admin is 'has storage been verified by platform management team';
+comment on column xnm_inventory_storage.storage_verified_timestamp is 'date and time storage was verified';
+comment on column xnm_inventory_storage.storage_verified_by is 'username of agent who verified storage';
+comment on column xnm_inventory_storage.maintained_by is 'xnmaccount serial of business profile responsible for maintaining storage';
