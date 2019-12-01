@@ -39,7 +39,7 @@ comment on column xnm_inventory_storage.xnm_inventory_id is 'foreign key to xnm_
 comment on column xnm_inventory_storage.storage_type_name is 'name of the storage type, either a standard or custom value';
 comment on column xnm_inventory_storage.move_in_date is 'date inventory was moved into this storage type';
 comment on column xnm_inventory_storage.move_out_date is 'the date inventory is moved out from this storage type, default value is 31-12-9999.';
-comment on column xnm_inventory_storage.move_in_location_id is 'fk to registered inventory warehouse id. this can be a verified facility, home address. storage conditions must exist in this location';
+comment on column xnm_inventory_storage.move_in_location_id is 'fk to registered physical address id. this can be a verified facility, home address. storage conditions must exist in this location';
 comment on column xnm_inventory_storage.expected_store_temp_mx is 'maximum storage temperature';
 comment on column xnm_inventory_storage.expected_store_temp_mn is 'minimum storage temperature';
 comment on column xnm_inventory_storage.temperature_unit is 'default is [C]entigrade, F';
@@ -55,3 +55,13 @@ comment on column xnm_inventory_storage.storage_verified_by_admin is 'has storag
 comment on column xnm_inventory_storage.storage_verified_timestamp is 'date and time storage was verified';
 comment on column xnm_inventory_storage.storage_verified_by is 'username of agent who verified storage';
 comment on column xnm_inventory_storage.maintained_by is 'xnmaccount serial of business profile responsible for maintaining storage';
+
+
+comment on table XNM_PHYSICAL_ADDRESS is 'addresses';
+comment on column XNM_PHYSICAL_ADDRESS.xnm_address_line_1 is 'address line 1 mandatory';
+comment on column XNM_PHYSICAL_ADDRESS.xnm_address_line_2 is 'address line 2';
+comment on column XNM_PHYSICAL_ADDRESS.xnm_address_line_3 is 'address line 3';
+comment on column XNM_PHYSICAL_ADDRESS.xnm_address_postcode is 'postcode';
+comment on column XNM_PHYSICAL_ADDRESS.address_verified is 'physical verified address is Y, default is N as unverified';
+comment on column XNM_PHYSICAL_ADDRESS.new_version_ref is 'default is null, when address is modified, a copy is created as new';
+comment on column XNM_PHYSICAL_ADDRESS.address_serialno is 'service generated unique serial no for new records. ';
