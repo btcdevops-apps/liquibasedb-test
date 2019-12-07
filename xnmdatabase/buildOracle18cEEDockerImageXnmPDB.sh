@@ -13,7 +13,7 @@ exit
 docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.create-xnmpdb.sql endvisprod:/media/dbscripts/create-xnmpdb.sql \
 && docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.create-xnmpdb-tablespace.sql endvisprod:/media/dbscripts/create-xnmpdb-tablespace.sql \
 && docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.update-xnmpdbadmin-account.sql endvisprod:/media/dbscripts/update-xnmpdbadmin-account.sql \
-&& docker cp src/main/resources/changelogs/sql/master-data/db.changelog.initial.sql.create-liquibase-xnmdbschema.sql endvisprod:/media/dbscripts/create-liquibase-schema.sql
+&& docker cp src/main/resources/changelogs/sql/master-data/db.changelog.initial.sql.create-liquibase-xnmdbschema.sql endvisprod:/media/dbscripts/create-xnmdb-liquibase-schema.sql
 
 # log into container bash
 docker exec -it endvisprod bash -c "source /home/oracle/.bashrc; bash"
@@ -68,7 +68,7 @@ sqlplus sys/Welcome_1@localhost/xnmpdb as sysdba
 @/media/dbscripts/create-xnmpdb.sql
 @/media/dbscripts/create-xnmpdb-tablespace.sql
 @/media/dbscripts/update-xnmpdbadmin-account.sql
-@/media/dbscripts/create-liquibase-schema.sql
+@/media/dbscripts/create-xnmdb-liquibase-schema.sql
 
 #-----end oracle18c-ee----
 
