@@ -41,7 +41,7 @@
                 </property>
             </activation>
             <properties>
-                <database.url>jdbc:oracle:thin:@localhost:32118/XNMPDB</database.url>
+                <database.url>jdbc:oracle:thin:@localhost:1980/XNMPDB</database.url>
                 <liquibase.username>xnmpdb_admin</liquibase.username>
                 <liquibase.password>xnmpdb_admin</liquibase.password>
                 <liquibase.contexts>development</liquibase.contexts>
@@ -55,7 +55,7 @@
                 </property>
             </activation>
             <properties>
-                <database.url>jdbc:oracle:thin:@localhost:32118/XNMPDB</database.url>
+                <database.url>jdbc:oracle:thin:@localhost:1980/XNMPDB</database.url>
                 <liquibase.username>xnmpdb_admin</liquibase.username>
                 <liquibase.password>xnmpdb_admin</liquibase.password>
                 <liquibase.contexts>development</liquibase.contexts>
@@ -69,7 +69,7 @@
                 </property>
             </activation>
             <properties>
-                <database.url>jdbc:oracle:thin:@localhost:32118/XNMPDB</database.url>
+                <database.url>jdbc:oracle:thin:@localhost:1980/XNMPDB</database.url>
                 <liquibase.username>xnmpdb_admin</liquibase.username>
                 <liquibase.password>xnmpdb_admin</liquibase.password>
                 <liquibase.contexts>development</liquibase.contexts>

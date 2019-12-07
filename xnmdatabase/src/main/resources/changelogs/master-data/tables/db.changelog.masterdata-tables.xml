@@ -3,7 +3,7 @@
     <!--
         see createXnmDBSchemaObjects.sh
     <changeSet author="oladayo.salawu@btcserv.co.uk" id="create-liquibase-schema" runOnChange="true">
-        <sqlFile path="changelogs/sql/master-data/db.changelog.initial.sql.create-liquibase-schema.sql" splitStatements="true" endDelimiter=';'/>
+        <sqlFile path="changelogs/sql/master-data/db.changelog.initial.sql.create-liquibase-xnmdbschema.sql" splitStatements="true" endDelimiter=';'/>
     </changeSet>-->
     <changeSet author="oladayo.salawu@btcserv.co.uk" id="master-data-01-table" runOnChange="true">
         <!--<tagDatabase tag="mtbl_data_01"/>-->
