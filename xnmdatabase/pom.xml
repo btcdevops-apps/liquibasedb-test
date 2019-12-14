@@ -3,7 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.btcserv.xnm</groupId>
     <artifactId>xnm-database</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -15,11 +14,26 @@
         <liquibase.username>${database.username}</liquibase.username>
         <liquibase.password>${database.password}</liquibase.password>
         <liquibase.url>${database.url}</liquibase.url>
-        <liquibase.changeLogFile>changelogs/db.changelog-master.xml</liquibase.changeLogFile>
+        <liquibase.changeLogFile>changelogs/db.changelog-main.xml</liquibase.changeLogFile>
         <liquibase.contexts>!development</liquibase.contexts> <!-- until `contexts` standards are agreed upon -->
         <goal>update</goal>
     </properties>
     <profiles>
+        <!--Use to Create PDB-->
+        <profile>
+            <id>createdatabase</id>
+            <activation>
+                <property>
+                    <name>createdatabase</name>
+                </property>
+            </activation>
+            <properties>
+                <liquibase.changeLogFile>
+                    changelogs/config/initial/db.changelog.setuppdb.ddl.xml
+                </liquibase.changeLogFile>
+            </properties>
+        </profile>
+        <!--Use to Create Original Database Tables in Empty Database e.g. Tables, Functions etc.-->
         <profile>
             <id>baseline</id>
             <activation>
@@ -29,43 +43,16 @@
             </activation>
             <properties>
                 <liquibase.changeLogFile>
-                    changelogs/initial/db.changelog.initial.setup.xml
+                    changelogs/config/initial/db.changelog.initial.ddl.xml
                 </liquibase.changeLogFile>
             </properties>
         </profile>
-        <profile>
-            <id>baselineBuild</id>
-            <activation>
-                <property>
-                    <name>baselineBuild</name>
-                </property>
-            </activation>
-            <properties>
-                <database.url>jdbc:oracle:thin:@localhost:1980/XNMPDB</database.url>
-                <liquibase.username>xnmpdb_admin</liquibase.username>
-                <liquibase.password>xnmpdb_admin</liquibase.password>
-                <liquibase.contexts>development</liquibase.contexts>
-            </properties>
-        </profile>
+        <!--Use to apply updates to database or rollback-->
         <profile>
             <id>local</id>
             <activation>
                 <property>
                     <name>local</name>
-                </property>
-            </activation>
-            <properties>
-                <database.url>jdbc:oracle:thin:@localhost:1980/XNMPDB</database.url>
-                <liquibase.username>xnmpdb_admin</liquibase.username>
-                <liquibase.password>xnmpdb_admin</liquibase.password>
-                <liquibase.contexts>development</liquibase.contexts>
-            </properties>
-        </profile>
-        <profile>
-            <id>windowsLocal</id>
-            <activation>
-                <property>
-                    <name>windowsLocal</name>
                 </property>
             </activation>
             <properties>

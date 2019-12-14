@@ -4,13 +4,13 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <!--sequences-->
-    <include file="changelogs/master-data/sequence/db.changelog.masterdata-sequence.xml"/>
+    <include file="changelogs/config/master-dbobjects/sequence/db.changelog.masterdata-sequence.xml"/>
     <!--tables-->
-    <include file="changelogs/master-data/tables/db.changelog.masterdata-tables.xml" />
+    <include file="changelogs/config/master-dbobjects/tables/db.changelog.masterdata-tables.xml" />
     <!--constraints-->
-    <include file="changelogs/master-data/constraints/db.changelog.masterdata-constraints.xml"/>
+    <include file="changelogs/config/master-dbobjects/constraints/db.changelog.masterdata-constraints.xml"/>
     <!--comments-->
-    <include file="changelogs/master-data/comments/db.changelog.masterdata-comments.xml"/>
+    <include file="changelogs/config/master-dbobjects/comments/db.changelog.masterdata-comments.xml"/>
     <!--views-->
     <!--procedures-->
     <!--functions-->
