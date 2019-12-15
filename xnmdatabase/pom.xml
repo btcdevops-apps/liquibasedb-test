@@ -42,9 +42,11 @@
                 </property>
             </activation>
             <properties>
-                <liquibase.changeLogFile>
-                    changelogs/config/initial/db.changelog.initial.ddl.xml
-                </liquibase.changeLogFile>
+                <liquibase.changeLogFile>changelogs/config/initial/db.changelog.initial.ddl.xml</liquibase.changeLogFile>
+                <database.url>jdbc:oracle:thin:@localhost:1521/xnmpdb</database.url>
+                <liquibase.username>xnmpdb_admin</liquibase.username>
+                <liquibase.password>xnmpdb_admin</liquibase.password>
+                <liquibase.contexts>development</liquibase.contexts>
             </properties>
         </profile>
         <!--Use to apply updates to database or rollback-->
