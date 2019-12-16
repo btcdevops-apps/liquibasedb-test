@@ -11,6 +11,9 @@
     <include file="changelogs/config/master-dbobjects/constraints/db.changelog.masterdata-constraints.xml"/>
     <!--comments-->
     <include file="changelogs/config/master-dbobjects/comments/db.changelog.masterdata-comments.xml"/>
+    <!--package-->
+    <include file="changelogs/config/master-dbobjects/package/db.changelog.masterdata-package.xml"/>
+    <include file="changelogs/config/master-dbobjects/package/db.changelog.masterdata-package-body.xml"/>
     <!--views-->
     <!--procedures-->
     <!--functions-->
