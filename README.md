@@ -1,6 +1,9 @@
 # xnm-db liquibase
 
 ## Database changes
+# mvn compile -Dbaseline -Dlocal
+# mvn compile -Dgoal=rollback -Dliquibase.rollbackCount=4 -Dlocal
+# mvn compile -Dgoal=rollback -Dliquibase.rollbackCount=4 -Dbaseline
 
 # mvn compile -DwindowsLocal -Dgoal=rollback -Dliquibase.rollbackCount=1
 # mvn compile -DwindowsLocal -Dgoal=rollback -Dliquibase.rollbackCount=1 -Dliquibase.tag=checkpoint
