@@ -28,7 +28,6 @@
             <sql>call xnm_drop_preference('address_wordlist')</sql>
             <sql>call xnm_drop_preference('address_lexer')</sql>
             <sql>call xnm_drop_stoplist('address_stoplist')</sql>
-<!--            <sqlFile path="changelogs/sql/master-dbobjects/ctx_index/rollback/master-data-01-ctx_index-rb.sql"/>-->
         </rollback>
     </changeSet>
 </databaseChangeLog>

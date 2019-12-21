@@ -18,6 +18,7 @@
     <include file="changelogs/config/master-dbobjects/procedure/db.changelog.masterdata-procedure.xml"/>
 
     <include file="changelogs/config/master-dbobjects/ctx_index/db.changelog.masterdata-ctx_index.xml"/>
+    <include file="changelogs/config/master-dbobjects/ctx_index/db.changelog.masterdata-xnmphyaddr-ctx_index.xml"/>
     <!--views-->
     <!--procedures-->
     <!--functions-->

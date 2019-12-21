@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="oladayo.salawu@btcserv.co.uk" id="master-data-01-xxnmphyaddrctxindex" runOnChange="true">
+        <sqlFile path="changelogs/sql/master-dbobjects/ctx_index/master-data-01-xnmdb-drop-preferences.sql" splitStatements="false" endDelimiter=''/>
+
+        <sql>call ctx_ddl.create_preference('phy_address_datastore', 'user_datastore')</sql>
+        <sql>call ctx_ddl.set_attribute('phy_address_datastore', 'procedure', 'btc_global_address_search.create_address_search_item')</sql>
+        <sql>call ctx_ddl.set_attribute('phy_address_datastore', 'output_type', 'varchar2')</sql>
+        <sql>call ctx_ddl.create_preference('phy_address_wordlist', 'basic_wordlist')</sql>
+        <sql>call ctx_ddl.set_attribute('phy_address_wordlist', 'prefix_index', 'true')</sql>
+        <sql>call ctx_ddl.create_preference('phy_address_lexer', 'basic_lexer')</sql>
+        <sql>call ctx_ddl.set_attribute('phy_address_lexer', 'skipjoins', '.-''')</sql>
+        <sql>call ctx_ddl.set_attribute('phy_address_lexer', 'mixed_case', 'yes')</sql>
+        <sql>call ctx_ddl.set_attribute('phy_address_lexer', 'base_letter', 'true')</sql>
+        <sql>call ctx_ddl.create_stoplist('phy_address_stoplist')</sql>
+        <sql>call ctx_ddl.add_stopword('phy_address_stoplist', 'te')</sql>
+        <sql>call ctx_ddl.add_stopword('phy_address_stoplist', 'vs')</sql>
+        <sqlFile path="changelogs/sql/master-dbobjects/ctx_index/master-data-01-phy_addr_ctx_index.sql" splitStatements="false" endDelimiter=''/>
+        <rollback>
+            <sql>call xnm_drop_index('phy_address_search_index')</sql>
+            <sql>call xnm_drop_preference('phy_address_datastore')</sql>
+            <sql>call xnm_drop_preference('phy_address_wordlist')</sql>
+            <sql>call xnm_drop_preference('phy_address_lexer')</sql>
+            <sql>call xnm_drop_stoplist('phy_address_stoplist')</sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
