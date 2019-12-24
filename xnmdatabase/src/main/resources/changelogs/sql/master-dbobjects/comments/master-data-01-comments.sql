@@ -26,7 +26,6 @@ comment on column inventory_item_trader.quota is 'total quantity of order units 
 comment on table product_generic_info is 'support products on xnm. lookup table of inventory products. [xnm_text_info table stores text attributes]';
 comment on column product_generic_info.product_owneraccount_id is 'foreign key to xnm_account.account_id';
 
-
 comment on table xnm_account is 'trading accounts access control root. every buyer (xnm_user > xnm_trader) will need an association with at least one xnm_account. multiple xnm_users can be linked to one account';
 comment on column xnm_account.xnm_account_type is 'INDIVIDUAL, ORGANIZATION';
 comment on column xnm_account.xnm_account_serial is 'service generated';
@@ -55,7 +54,8 @@ comment on column xnm_inventory_storage.storage_verified_by_admin is 'has storag
 comment on column xnm_inventory_storage.storage_verified_timestamp is 'date and time storage was verified';
 comment on column xnm_inventory_storage.storage_verified_by is 'username of agent who verified storage';
 comment on column xnm_inventory_storage.maintained_by is 'xnmaccount serial of business profile responsible for maintaining storage';
-
+comment on column xnm_inventory_storage.STORAGE_UUID is 'record unique serial generated and assigned by service during creation';
+comment on column xnm_inventory_storage.WAREHOUSE_ID is 'fk to inventory_warehouse, if not null, then warehouse.addresslocation must be equal to move_in_location_id';
 
 comment on table XNM_PHYSICAL_ADDRESS is 'addresses';
 comment on column XNM_PHYSICAL_ADDRESS.xnm_address_line_1 is 'address line 1 mandatory';
@@ -78,3 +78,17 @@ comment on column BTC_GLOBAL_ADDRESS.NEW_VERSION_ID is 'default is null, when ad
 comment on column BTC_GLOBAL_ADDRESS.address_serialno is 'service generated unique serial no for new records. ';
 comment on column BTC_GLOBAL_ADDRESS.PROPERTY_NUMBER is 'E.G 11A';
 comment on column BTC_GLOBAL_ADDRESS.PROPERTY_TYPE is 'E.G HOUSE, BUSINESS, BLOCK';
+
+comment on table INVENTORY_WAREHOUSE is 'warehouse details for storing inventories, a warehouse could be an official building or a home or a public facility. text and numeric attributes maintained in xnm_text/numeric_info tables';
+comment on column INVENTORY_WAREHOUSE.INVENTORY_WAREHOUSE_ID is 'warehouse id primary key maintained by service';
+comment on column INVENTORY_WAREHOUSE.WAREHOUSE_SERIALNO is 'unique warehouse serial number issued by service on create';
+comment on column INVENTORY_WAREHOUSE.WAREHOUSE_LOCATION_ADDRESS_ID is 'physical address warehouse is located. fk to btc_global_address';
+comment on column INVENTORY_WAREHOUSE.WAREHOUSE_STORAGE_CONDITION_ID is 'fk to inventory_storage';
+comment on column INVENTORY_WAREHOUSE.MAINTAINED_BY_XNM_ACCOUNT is 'xnm_account or business responsible for maintaining warehouse';
+comment on column INVENTORY_WAREHOUSE.OWNED_BY_XNM_ACCOUNT is 'xnm_account that owns warehouse';
+comment on column INVENTORY_WAREHOUSE.PRIMARY_OPERATOR_XNM_ACCOUNT is 'registered primary operator of warehouse';
+comment on column INVENTORY_WAREHOUSE.CREATED_ON is 'date record was created';
+comment on column INVENTORY_WAREHOUSE.CREATED_BY is 'record created by user';
+comment on column INVENTORY_WAREHOUSE.LAST_UPDATED_TIMESTMAP is 'last modified on';
+comment on column INVENTORY_WAREHOUSE.LAST_UPDATED_BY is 'last modified by user';
+comment on column INVENTORY_WAREHOUSE.WAREHOUSE_STATUS IS 'status [NEW,CLOSED,INUSE]';
