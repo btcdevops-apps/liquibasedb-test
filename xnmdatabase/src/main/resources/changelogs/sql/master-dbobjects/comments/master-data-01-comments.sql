@@ -21,8 +21,11 @@ comment on column inventory_item.inventory_owner is 'foreign key to xnm_account.
 
 comment on table inventory_item_trader is 'traders for an inventory items';
 comment on column inventory_item_trader.inventory_item_id is 'foreign key to inventory_item.inventory_item_id';
-comment on column inventory_item_trader.trader_profile_id is 'possibly redundant';
-comment on column inventory_item_trader.trade_as is ' possibly redundant [TRADER, BROKER]';
+comment on column inventory_item_trader.trader_profile_id is 'fk to xnmaccount id';
+comment on column inventory_item_trader.trade_as is '[TRADER, BROKER]';
+comment on column inventory_item_trader.inventory_id is 'reference to inventory';
+comment on column inventory_item_trader.inventory_product_id is 'fk to inventory product';
+comment on column inventory_item_trader.INVENTORY_STOCKLEVELBATCH_ID is 'FK TO INVENTORY STOCK BATCH, SHOULD LIMIT TRADER TO JUST THIS BATCH';
 comment on column inventory_item_trader.quota is 'total quantity of order units from the associated inventory row a trader has been allocated and max order units that can be sold on behalf of the inventory owner';
 
 comment on table product_generic_info is 'support products on xnm. lookup table of inventory products. [xnm_text_info table stores text attributes]';
@@ -91,7 +94,7 @@ comment on column INVENTORY_WAREHOUSE.OWNED_BY_XNM_ACCOUNT is 'xnm_account that 
 comment on column INVENTORY_WAREHOUSE.PRIMARY_OPERATOR_XNM_ACCOUNT is 'registered primary operator of warehouse';
 comment on column INVENTORY_WAREHOUSE.CREATED_ON is 'date record was created';
 comment on column INVENTORY_WAREHOUSE.CREATED_BY is 'record created by user';
-comment on column INVENTORY_WAREHOUSE.LAST_UPDATED_TIMESTMAP is 'last modified on';
+comment on column INVENTORY_WAREHOUSE.LAST_UPDATED_TIMESTAMP is 'last modified on';
 comment on column INVENTORY_WAREHOUSE.LAST_UPDATED_BY is 'last modified by user';
 comment on column INVENTORY_WAREHOUSE.WAREHOUSE_STATUS IS 'status [NEW,CLOSED,INUSE]';
 
@@ -107,3 +110,6 @@ comment on column inventory_stock_level.last_order_stockunits is 'volume of unit
 comment on column inventory_stock_level.unit_measure is 'e.g. kgs, volume.. ideally should be the same as that specified for inventorytypes associated product';
 comment on column inventory_stock_level.last_order_id is 'id of order last approved. corresponding volume must match last_order_stockunits';
 comment on column inventory_stock_level.previous_stocklevel_id is 'last approved order before last_order_id';
+comment on column inventory_stock_level.ready_for_trade is 'default is N, orders can only be placed against stock if value is Y';
+comment on column inventory_stock_level.all_approved_trader_access is 'default is N, all approved inventory trader have access if value is Y';
+comment on column inventory_stock_level.has_curated_trader_list is 'stock has a maintained short list of 1 or more traders who can place order against stock';
