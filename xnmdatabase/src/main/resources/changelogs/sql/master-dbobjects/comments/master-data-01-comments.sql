@@ -23,10 +23,12 @@ comment on table inventory_item_trader is 'traders for an inventory items';
 comment on column inventory_item_trader.inventory_item_id is 'foreign key to inventory_item.inventory_item_id';
 comment on column inventory_item_trader.trader_profile_id is 'fk to xnmaccount id';
 comment on column inventory_item_trader.trade_as is '[TRADER, BROKER]';
+comment on column inventory_item_trader.TRADER_REQUEST_UUID is 'trader request uuid serial number maintained by service';
 comment on column inventory_item_trader.inventory_id is 'reference to inventory';
 comment on column inventory_item_trader.inventory_product_id is 'fk to inventory product';
 comment on column inventory_item_trader.INVENTORY_STOCKLEVELBATCH_ID is 'FK TO INVENTORY STOCK BATCH, SHOULD LIMIT TRADER TO JUST THIS BATCH';
-comment on column inventory_item_trader.quota is 'total quantity of order units from the associated inventory row a trader has been allocated and max order units that can be sold on behalf of the inventory owner';
+comment on column inventory_item_trader.quota_requested is 'total quantity of order units from the associated inventory row a trader has requested for';
+comment on column inventory_item_trader.quota_approved is 'total quantity of order units from the associated inventory row a trader has been allocated and max order units that can be sold on behalf of the inventory owner';
 
 comment on table product_generic_info is 'support products on xnm. lookup table of inventory products. [xnm_text_info table stores text attributes]';
 comment on column product_generic_info.product_owneraccount_id is 'foreign key to xnm_account.account_id';
