@@ -115,3 +115,25 @@ comment on column inventory_stock_level.previous_stocklevel_id is 'last approved
 comment on column inventory_stock_level.ready_for_trade is 'default is N, orders can only be placed against stock if value is Y';
 comment on column inventory_stock_level.all_approved_trader_access is 'default is N, all approved inventory trader have access if value is Y';
 comment on column inventory_stock_level.has_curated_trader_list is 'stock has a maintained short list of 1 or more traders who can place order against stock';
+
+
+comment on table xnm_agreement is 'contractual terms and condition association between xnm partities (accounts, profile)';
+comment on column xnm_agreement.agreement_uuid is 'unique serial no maintained by service';
+comment on column xnm_agreement.raised_by_account_id is 'xnm account id that initiated agreement';
+comment on column xnm_agreement.created_on is 'timestamp record was created';
+comment on column xnm_agreement.created_by is 'username of user that created record';
+comment on column xnm_agreement.agreement_approved_flag is 'default N, sets to Y when all parties agree to agreement';
+comment on column xnm_agreement.agreement_status is 'default DRAFT, changed to SENT when submitted to parties, and INREVIEW when one but not all parties has accepted, DECLINED when any of the parties decline, ACTIVE when all parties accept';
+comment on column xnm_agreement.agreement_sent_on is 'date sent to parties';
+comment on column xnm_agreement.has_broker_flag is 'default N, Is Y if broker exists in transaction';
+
+
+comment on table xnm_agreement_parties is 'contractual terms and condition association between xnm partities (accounts, profile)';
+comment on column xnm_agreement_parties.agreement_party_uuid is 'unique serial no for agreement';
+comment on column xnm_agreement_parties.agreement_id is 'fk to agreement id';
+comment on column xnm_agreement_parties.xnm_useraccount_id is 'fk to xnm_account or xnm_user';
+comment on column xnm_agreement_parties.xnm_account_type is 'fk to xnm_account';
+comment on column xnm_agreement_parties.party_approved_flag is 'default P[ending], A[pproved], D[eclined]';
+comment on column xnm_agreement_parties.party_action_status is 'APPROVED, DECLINED';
+comment on column xnm_agreement_parties.party_approved_on is 'date agreement approved by party';
+comment on column xnm_agreement_parties.party_isbroker_flag is 'party is a broker for the transaction';
