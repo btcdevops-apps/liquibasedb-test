@@ -137,3 +137,4 @@ comment on column xnm_agreement_parties.party_approved_flag is 'default P[ending
 comment on column xnm_agreement_parties.party_action_status is 'APPROVED, DECLINED';
 comment on column xnm_agreement_parties.party_approved_on is 'date agreement approved by party';
 comment on column xnm_agreement_parties.party_isbroker_flag is 'party is a broker for the transaction';
+comment on column xnm_agreement_parties.party_role is 'party role in transaction (TRADER, OWNER, BROKER)';
