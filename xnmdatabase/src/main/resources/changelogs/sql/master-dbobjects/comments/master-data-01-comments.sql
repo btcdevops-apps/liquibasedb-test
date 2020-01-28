@@ -29,6 +29,13 @@ comment on column inventory_item_trader.inventory_product_id is 'fk to inventory
 comment on column inventory_item_trader.INVENTORY_STOCKLEVELBATCH_ID is 'FK TO INVENTORY STOCK BATCH, SHOULD LIMIT TRADER TO JUST THIS BATCH';
 comment on column inventory_item_trader.quota_requested is 'total quantity of order units from the associated inventory row a trader has requested for';
 comment on column inventory_item_trader.quota_approved is 'total quantity of order units from the associated inventory row a trader has been allocated and max order units that can be sold on behalf of the inventory owner';
+comment on column inventory_item_trader.trader_approved_by is 'xnmuser.profileid of user logged in as inventory owner xnmaccount association';
+comment on column inventory_item_trader.trader_approved_on is 'date of approval';
+comment on column inventory_item_trader.trader_approved_flag is 'default P[ending], Y[approved], N[rejected]';
+comment on column inventory_item_trader.trading_request_status is 'default PENDING, | APPROVED | REJECTED';
+comment on column inventory_item_trader.trading_status is 'default null, A[CTIVE]:when all agreement parties have agreed to T&C, S[USPENDED]: by admin/inventory owner usually when in dispute, E[XPIRED]:Out of Quota or Stock, R[EVOKED]: by inventory owner/admin when trader is stopped from continuing with trade. AW_TCA: awaiting acceptance';
+comment on column inventory_item_trader.trading_agreement_id is 'fk to the currently active agreement for this request';
+
 
 comment on table product_generic_info is 'support products on xnm. lookup table of inventory products. [xnm_text_info table stores text attributes]';
 comment on column product_generic_info.product_owneraccount_id is 'foreign key to xnm_account.account_id';
@@ -138,3 +145,6 @@ comment on column xnm_agreement_parties.party_action_status is 'APPROVED, DECLIN
 comment on column xnm_agreement_parties.party_approved_on is 'date agreement approved by party';
 comment on column xnm_agreement_parties.party_isbroker_flag is 'party is a broker for the transaction';
 comment on column xnm_agreement_parties.party_role is 'party role in transaction (TRADER, OWNER, BROKER)';
+
+
+COMMENT ON TABLE VW_INVENTORY_ITEM_TEXTINFO IS 'INVENTORY ITEM TEXT INFO PROPERTIES';

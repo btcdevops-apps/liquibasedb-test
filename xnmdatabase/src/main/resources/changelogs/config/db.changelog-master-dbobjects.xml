@@ -20,6 +20,7 @@
     <include file="changelogs/config/master-dbobjects/ctx_index/db.changelog.masterdata-ctx_index.xml"/>
     <include file="changelogs/config/master-dbobjects/ctx_index/db.changelog.masterdata-xnmphyaddr-ctx_index.xml"/>
     <!--views-->
+    <include file="changelogs/config/master-dbobjects/dbviews/db.changelog.masterdata-dbviews.xml"/>
     <!--procedures-->
     <!--functions-->
 </databaseChangeLog>
