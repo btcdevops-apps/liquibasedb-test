@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.betcserv.lga.mgmt.land</groupId>
-    <artifactId>lga-land-database</artifactId>
+    <artifactId>metro-land-database</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
         <liquibase-maven.version>3.6.3</liquibase-maven.version>
@@ -43,9 +43,9 @@
             </activation>
             <properties>
                 <liquibase.changeLogFile>changelogs/config/initial/db.changelog.initial.ddl.xml</liquibase.changeLogFile>
-                <database.url>jdbc:oracle:thin:@localhost:1521/xnmpdb</database.url>
-                <liquibase.username>xnmpdb_admin</liquibase.username>
-                <liquibase.password>xnmpdb_admin</liquibase.password>
+                <database.url>jdbc:oracle:thin:@localhost:1521/btcmetrolanddb</database.url>
+                <liquibase.username>btcmetroland_admin</liquibase.username>
+                <liquibase.password>btcmetroland_admin</liquibase.password>
                 <liquibase.contexts>development</liquibase.contexts>
             </properties>
         </profile>
@@ -58,9 +58,9 @@
                 </property>
             </activation>
             <properties>
-                <database.url>jdbc:oracle:thin:@localhost:1521/xnmpdb</database.url>
-                <liquibase.username>xnmpdb_admin</liquibase.username>
-                <liquibase.password>xnmpdb_admin</liquibase.password>
+                <database.url>jdbc:oracle:thin:@localhost:1521/btcmetrolanddb</database.url>
+                <liquibase.username>btcmetroland_admin</liquibase.username>
+                <liquibase.password>btcmetroland_admin</liquibase.password>
                 <liquibase.contexts>development</liquibase.contexts>
             </properties>
         </profile>

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 
-sudo docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.create-xnmpdb.sql oracle-xe:/opt/oracle/scripts/create-xnmpdb.sql
+sudo docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.create-btcmetrolandpdb.sql oracle-xe:/opt/oracle/scripts/create-btcmetrolandpdb.sql
 
-sudo docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.create-xnmpdb-tablespace.sql oracle-xe:/opt/oracle/scripts/create-xnmpdb-tablespace.sql
+sudo docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.create-btcmetrolandpdb-tablespace.sql oracle-xe:/opt/oracle/scripts/create-btcmetrolandpdb-tablespace.sql
 
-sudo docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.update-xnmpdbadmin-account.sql oracle-xe:/opt/oracle/scripts/update-xnmpdbadmin-account.sql
+sudo docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.update-btcmetrolandpdbadmin-account.sql oracle-xe:/opt/oracle/scripts/update-btcmetrolandpdbadmin-account.sql
 
 sudo docker cp src/main/resources/changelogs/sql/master-data/db.changelog.initial.sql.create-liquibase-xnmdbschema.sql oracle-xe:/opt/oracle/scripts/create-liquibase-schema.sql
 
@@ -29,15 +29,15 @@ ALTER PLUGGABLE DATABASE ALL EXCEPT xepdb1 CLOSE IMMEDIATE;
 
 #RUN $ORACLE_HOME/bin/sqlplus sys/Oracle18@localhost/XE as sysdba
 
-#@/opt/oracle/scripts/create-xnmpdb.sql
+#@/opt/oracle/scripts/create-btcmetrolandpdb.sql
 
-#@/opt/oracle/scripts/create-xnmpdb-tablespace.sql
+#@/opt/oracle/scripts/create-btcmetrolandpdb-tablespace.sql
 
 #@/opt/oracle/scripts/create-liquibase-schema.sql
 
-#@/opt/oracle/scripts/create-xnmpdb-tablespace.sql
+#@/opt/oracle/scripts/create-btcmetrolandpdb-tablespace.sql
 
-#@/opt/oracle/scripts/update-xnmpdbadmin-account.sql
+#@/opt/oracle/scripts/update-btcmetrolandpdbadmin-account.sql
 
 #@/opt/oracle/scripts/create-liquibase-schema.sql
 
@@ -50,9 +50,9 @@ ALTER PLUGGABLE DATABASE ALL EXCEPT xepdb1 CLOSE IMMEDIATE;
 #sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
 #sudo chmod g+rwx "/home/$USER/.docker" -R
 # cd /opt/oracle/product/18c/dbhomeXE/network/admin/
-# add XNMPDB = (DESCRIPTION =
+# add btcmetrolandpdb = (DESCRIPTION =
 #                (ADDRESS = (PROTOCOL = TCP)(HOST = 0.0.0.0)(PORT = 1521))
-#                (CONNECT_DATA = (SERVER = SHARED)(SERVICE_NAME = XNMPDB))
+#                (CONNECT_DATA = (SERVER = SHARED)(SERVICE_NAME = btcmetrolandpdb))
 #        )
 #---should look like this---
 #XE =
@@ -63,13 +63,13 @@ ALTER PLUGGABLE DATABASE ALL EXCEPT xepdb1 CLOSE IMMEDIATE;
 #      (SERVICE_NAME = XE)
 #    )
 #  )
-#XNMPDB = (DESCRIPTION =
+#btcmetrolandpdb = (DESCRIPTION =
 #                (ADDRESS = (PROTOCOL = TCP)(HOST = 0.0.0.0)(PORT = 1521))
-#                (CONNECT_DATA = (SERVER = SHARED)(SERVICE_NAME = XNMPDB))
+#                (CONNECT_DATA = (SERVER = SHARED)(SERVICE_NAME = btcmetrolandpdb))
 #        )
 #
 #LISTENER_XE =
 #  (ADDRESS = (PROTOCOL = TCP)(HOST = 0.0.0.0)(PORT = 1521))
 #-----
 
-#mvn compile -U -Dlocal -Ddatabase.username=xnmpdb_admin -Ddatabase.password=xnmpdb_admin -Ddatabase.url=jdbc:oracle:thin:@172.18.0.2:1521/XNMPDB
+#mvn compile -U -Dlocal -Ddatabase.username=btcmetrolandpdb_admin -Ddatabase.password=btcmetrolandpdb_admin -Ddatabase.url=jdbc:oracle:thin:@172.18.0.2:1521/btcmetrolandpdb

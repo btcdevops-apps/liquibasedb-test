@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 
 #----oracle-18c-ee https://orclguru.com/2018/09/04/prebuilt-oracle-database-18c-with-docker/
-##docker run -d -it -p 1980:1521 -p 1981:5500 --name=endvisprod --mount type=bind,source=/media/sf_endvidbbackup/oracledockerdb_storage,target=/hostfolder  --network=oracle_network  dockerhelp/docker-oracle-ee-18c
+##docker run -d -it -p 1980:1521 -p 1981:5500 --name=btcmetrolanddb --mount type=bind,source=/media/sf_endvidbbackup/oracledockerdb_storage,target=/hostfolder  --network=oracle_network  dockerhelp/docker-oracle-ee-18c
 
-docker exec -it endvisprod bash -c "source /home/oracle/.bashrc; bash"
+docker exec -it btcmetrolanddb bash -c "source /home/oracle/.bashrc; bash"
 sh post_install.sh
 sqlplus / as sysdba
 alter pluggable database PDB18C open;
 exit
 
 #copy dataabse setup scripts into container
-docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.create-xnmpdb.sql endvisprod:/media/dbscripts/create-xnmpdb.sql \
-&& docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.create-xnmpdb-tablespace.sql endvisprod:/media/dbscripts/create-xnmpdb-tablespace.sql \
-&& docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.update-xnmpdbadmin-account.sql endvisprod:/media/dbscripts/update-xnmpdbadmin-account.sql \
-&& docker cp src/main/resources/changelogs/sql/master-data/db.changelog.initial.sql.create-liquibase-xnmdbschema.sql endvisprod:/media/dbscripts/create-xnmdb-liquibase-schema.sql
+docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.create-xnmpdb.sql btcmetrolanddb:/media/dbscripts/create-xnmpdb.sql \
+&& docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.create-xnmpdb-tablespace.sql btcmetrolanddb:/media/dbscripts/create-xnmpdb-tablespace.sql \
+&& docker cp src/main/resources/changelogs/sql/initial/db.changelog.initial.sql.update-xnmpdbadmin-account.sql btcmetrolanddb:/media/dbscripts/update-xnmpdbadmin-account.sql \
+&& docker cp src/main/resources/changelogs/sql/master-data/db.changelog.initial.sql.create-liquibase-xnmdbschema.sql btcmetrolanddb:/media/dbscripts/create-xnmdb-liquibase-schema.sql
 
 # log into container bash
-docker exec -it endvisprod bash -c "source /home/oracle/.bashrc; bash"
+docker exec -it btcmetrolanddb bash -c "source /home/oracle/.bashrc; bash"
 scp post_install.sh sql_login.sh
 vi sql_login.sh
 ##
@@ -61,7 +61,7 @@ sqlplus sys/Welcome_1@localhost/ORCL18 as sysdba
 #exit sql session
 exit
 
-#connect to db endvisprodpdb as sys
+#connect to db btcmetrolanddbpdb as sys
 sqlplus sys/Welcome_1@localhost/xnmpdb as sysdba
 
 #run database provisioning scripts for liquibase and endvis
