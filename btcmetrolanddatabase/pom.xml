@@ -43,9 +43,9 @@
             </activation>
             <properties>
                 <liquibase.changeLogFile>changelogs/config/initial/db.changelog.initial.ddl.xml</liquibase.changeLogFile>
-                <database.url>jdbc:oracle:thin:@localhost:1521/btcmetrolanddb</database.url>
-                <liquibase.username>btcmetroland_admin</liquibase.username>
-                <liquibase.password>btcmetroland_admin</liquibase.password>
+                <database.url>jdbc:oracle:thin:@localhost:1521/btcmetrolandpdb</database.url>
+                <liquibase.username>btcmetrolandpdb_admin</liquibase.username>
+                <liquibase.password>btcmetrolandpdb_admin</liquibase.password>
                 <liquibase.contexts>development</liquibase.contexts>
             </properties>
         </profile>
@@ -58,9 +58,9 @@
                 </property>
             </activation>
             <properties>
-                <database.url>jdbc:oracle:thin:@localhost:1521/btcmetrolanddb</database.url>
-                <liquibase.username>btcmetroland_admin</liquibase.username>
-                <liquibase.password>btcmetroland_admin</liquibase.password>
+                <database.url>jdbc:oracle:thin:@localhost:1521/btcmetrolandpdb</database.url>
+                <liquibase.username>btcmetrolandpdb_admin</liquibase.username>
+                <liquibase.password>btcmetrolandpdb_admin</liquibase.password>
                 <liquibase.contexts>development</liquibase.contexts>
             </properties>
         </profile>
