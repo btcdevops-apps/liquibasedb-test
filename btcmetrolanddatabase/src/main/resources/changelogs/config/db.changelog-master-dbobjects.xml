@@ -4,23 +4,23 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <!--sequences-->
-    <include file="changelogs/config/master-dbobjects/sequence/db.changelog.masterdata-sequence.xml"/>
+        <include file="changelogs/config/master-dbobjects/sequence/db.changelog.masterdata-sequence.xml"/>
     <!--tables-->
-    <include file="changelogs/config/master-dbobjects/tables/db.changelog.masterdata-tables.xml" />
+        <include file="changelogs/config/master-dbobjects/tables/db.changelog.masterdata-tables.xml" />
     <!--constraints-->
-    <include file="changelogs/config/master-dbobjects/constraints/db.changelog.masterdata-constraints.xml"/>
+        <!--<include file="changelogs/config/master-dbobjects/constraints/db.changelog.masterdata-constraints.xml"/>-->
     <!--comments-->
-    <include file="changelogs/config/master-dbobjects/comments/db.changelog.masterdata-comments.xml"/>
+        <include file="changelogs/config/master-dbobjects/comments/db.changelog.masterdata-comments.xml"/>
     <!--package-->
-    <include file="changelogs/config/master-dbobjects/package/db.changelog.masterdata-package.xml"/>
-    <include file="changelogs/config/master-dbobjects/package/db.changelog.masterdata-package-body.xml"/>
+        <!--<include file="changelogs/config/master-dbobjects/package/db.changelog.masterdata-package.xml"/>-->
+        <!--<include file="changelogs/config/master-dbobjects/package/db.changelog.masterdata-package-body.xml"/>-->
 
-    <include file="changelogs/config/master-dbobjects/procedure/db.changelog.masterdata-procedure.xml"/>
-
-    <include file="changelogs/config/master-dbobjects/ctx_index/db.changelog.masterdata-ctx_index.xml"/>
-    <include file="changelogs/config/master-dbobjects/ctx_index/db.changelog.masterdata-xnmphyaddr-ctx_index.xml"/>
-    <!--views-->
-    <include file="changelogs/config/master-dbobjects/dbviews/db.changelog.masterdata-dbviews.xml"/>
     <!--procedures-->
+        <!--<include file="changelogs/config/master-dbobjects/procedure/db.changelog.masterdata-procedure.xml"/>-->
+    <!--oracle text indices-->
+        <!--<include file="changelogs/config/master-dbobjects/ctx_index/db.changelog.masterdata-ctx_index.xml"/>-->
+        <!--<include file="changelogs/config/master-dbobjects/ctx_index/db.changelog.masterdata-xnmphyaddr-ctx_index.xml"/>-->
+    <!--views-->
+        <!--<include file="changelogs/config/master-dbobjects/dbviews/db.changelog.masterdata-dbviews.xml"/>-->
     <!--functions-->
 </databaseChangeLog>
