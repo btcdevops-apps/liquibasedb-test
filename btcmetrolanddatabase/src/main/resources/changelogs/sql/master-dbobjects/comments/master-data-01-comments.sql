@@ -63,6 +63,7 @@ comment on column metro_asset_ownership.transaction_id is 'fk to master transfer
 
 comment on table metro_account is 'metro manager will have an account and its metro_account_users are link with association.';
 comment on column metro_account.account_serial is 'unique serial assigned by entity on create';
+comment on column metro_account.account_type is 'MANAGER | THIRD_PARTY';
 
 comment on table metro_account_user is 'all users and customers will have a record';
 
